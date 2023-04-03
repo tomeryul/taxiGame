@@ -41,16 +41,19 @@ public class GameManager {
                 Toast.makeText(context, "Collision occurred!!", Toast.LENGTH_LONG).show();
                 v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
                 changed = 1;
+
             } else if (main_img_traffic_lights[5][1].getVisibility() == View.VISIBLE &&
                     main_img_car[1].getVisibility() == View.VISIBLE) {
                 Toast.makeText(context, "Collision occurred!!", Toast.LENGTH_LONG).show();
                 v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
                 changed = 1;
+
             } else if (main_img_traffic_lights[5][2].getVisibility() == View.VISIBLE &&
                     main_img_car[2].getVisibility() == View.VISIBLE) {
                 Toast.makeText(context, "Collision occurred!!", Toast.LENGTH_LONG).show();
                 v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
                 changed = 1;
+
             }
             if(changed==1){
                 wrong += 1;
@@ -58,19 +61,7 @@ public class GameManager {
                     isEnded = true;
                 }
             }
-//            if ((main_img_traffic_lights[5][0].getVisibility() == View.VISIBLE &&
-//                    main_img_car[0].getVisibility() == View.VISIBLE) ||
-//                    (main_img_traffic_lights[5][1].getVisibility() == View.VISIBLE &&
-//                            main_img_car[1].getVisibility() == View.VISIBLE) ||
-//                    (main_img_traffic_lights[5][2].getVisibility() == View.VISIBLE &&
-//                            main_img_car[2].getVisibility() == View.VISIBLE)) {
-//                Toast.makeText(context, "Collision occurred!!", Toast.LENGTH_LONG).show();
-//                v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-//                wrong += 1;
-//                if (wrong == 3) {
-//                    isEnded = true;
-//                }
-//            }
+
         }
     }
 
