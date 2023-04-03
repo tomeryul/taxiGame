@@ -1,3 +1,5 @@
 # taxiGame
 
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/109019979/229582718-ace919b4-c888-44da-bb64-90ccc39e980e.gif)
+the first home work of "Introduction to cellular science"
+
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/109019979/229583430-45aec4b4-a51e-41c4-9c28-3a8734234062.gif)
