@@ -18,6 +18,7 @@ import android.view.View;
 
 import com.google.android.material.imageview.ShapeableImageView;
 //timer imports
+
 import java.util.Arrays;
 import java.util.Random;
 
@@ -36,8 +37,8 @@ public class MainActivity extends AppCompatActivity {
     long startTime = 0;
     private Timer timer;
     private GameManager gameManager;
+    Random rand = new Random();
 
-    private final int[][] light_Movement = new int[6][3]; // don't know if it should be final.
 
 
 
@@ -131,22 +132,19 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateTimeUI() {
         Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        resetMovement();
 
-        for(int i = 0 ; i < main_IMG_traffic_lights.length ; i++){
-            for(int j = 0 ; j < main_IMG_traffic_lights[i].length ; j++){
-                if(main_IMG_traffic_lights[i][j].getVisibility()==View.VISIBLE && light_Movement[i][j]==0){
+        for(int i = main_IMG_traffic_lights.length-1 ; i >= 0 ; i--){
+            for(int j = main_IMG_traffic_lights[i].length-1 ; j >=0  ; j--){
+                if(main_IMG_traffic_lights[i][j].getVisibility()==View.VISIBLE){
                     if(i < main_IMG_traffic_lights.length-1) {
                         main_IMG_traffic_lights[i][j].setVisibility(View.INVISIBLE);
                         main_IMG_traffic_lights[i + 1][j].setVisibility(View.VISIBLE);
-                        light_Movement[i+1][j]=1;
                     }
                     else
                         main_IMG_traffic_lights[i][j].setVisibility(View.INVISIBLE);
                 }
             }
         }
-
         if(new_traffic_lights_timer==1){
             makeNewLight();
         }
@@ -170,19 +168,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void makeNewLight() {
-        Random rand = new Random();
         int where = rand.nextInt(3);
         main_IMG_traffic_lights[0][where].setVisibility(View.VISIBLE);
-    }
-
-    private void resetMovement(){
-        for (int[] ints : light_Movement) {
-            Arrays.fill(ints, 0);
-            // this function and arr made in order to prevent the same obstetrical to fall down to
-            // the ens of the screen in one go.
-            // if the obstetrical [i][j] have fallen the arr [i+1][j] will be lock (set to 1)
-            // till the end of the loop
-        }
     }
 
     private void startTime() {
